@@ -1,0 +1,60 @@
+# Laravel & PHP
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+/storage/framework/*
+/storage/logs/*
+/bootstrap/cache/*
+/.env
+/.env.*
+!.env.example
+**/migrations
+
+# Composer & PHP tools
+composer.lock
+.phpunit.result.cache
+.php-cs-fixer.cache
+.phpstan.cache
+
+# Docker
+docker/mysql
+/docker-compose.override.yml
+
+# IDE & OS
+.idea
+.vscode
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Redis / Cache
+*.pid
+*.seed
+
+# Coverage
+coverage/
+clover.xml
+*.log
+*.DS_Store
+*.swp
+*.swo
+*.bak
+*.tmp
+*.pid
+*.pid.lock
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.tar.gz
+*.zip
+*.tgz
+*.rar
+*.7z
+*.gz
+*.tar
+*.tgz
+*.bak   
+*.lock

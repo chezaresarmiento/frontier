@@ -6,8 +6,8 @@
 /storage/framework/*
 /storage/logs/*
 /bootstrap/cache/*
-/.env
-/.env.*
+.env
+.env.*
 !.env.example
 **/migrations
 

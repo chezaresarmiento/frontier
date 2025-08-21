@@ -13,7 +13,7 @@ class WishlistService
     public function addProduct(int $userId, int $productId): Wishlist|string
     {
         if ($this->repository->exists($userId, $productId)) {
-            return 'Product already in wishlist';
+            throw new \Exception("Product already in wishlist");
         }
 
         return $this->repository->add($userId, $productId);

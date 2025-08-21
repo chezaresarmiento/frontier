@@ -23,7 +23,7 @@ it('can fetch products with a valid token', function () {
     $response = $this->withHeaders([
         'Accept' => 'application/json',
         'Authorization' => 'Bearer ' . $token->token,
-    ])->getJson('/api/products');
+    ])->getJson('/api/v1.1/products');
 
     $response->assertOk();
     $response->assertJsonStructure([
@@ -34,7 +34,7 @@ it('can fetch products with a valid token', function () {
 });
 
 it('rejects request without token', function () {
-    $response = $this->getJson('/api/products');
+    $response = $this->getJson('/api/v1.1/products');
 
     $response->assertStatus(401);
     $response->assertJson([

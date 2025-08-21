@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\ProductRepository;
 use Illuminate\Support\Collection;
+use App\Models\Product;
 
 class ProductService
 {
@@ -15,4 +16,15 @@ class ProductService
     {
         return $this->repository->all();
     }
+
+    public function addProduct(string $name, float $price, ?string $description = null): Product
+    {
+        return $this->repository->create([
+            'name'        => $name,
+            'price'       => $price,
+            'description' => $description,
+        ]);
+    }
+
+    
 }

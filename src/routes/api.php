@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 Route::get('/ping', fn() => ['pong' => true]);
 
 Route::post('register', [AuthController::class, 'register']);
+
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth.token')->group(function () {
@@ -18,4 +19,5 @@ Route::middleware('auth.token')->group(function () {
     Route::post('wishlist', [WishlistController::class, 'store']);
     Route::delete('wishlist/{productId}', [WishlistController::class, 'destroy']);
     Route::get('products', [ProductController::class, 'index']);
+    Route::post('/products', [ProductController::class, 'store']);
 });

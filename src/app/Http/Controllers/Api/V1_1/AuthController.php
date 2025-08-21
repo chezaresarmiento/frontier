@@ -12,7 +12,7 @@
  * )
  */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1_1;
 
 use App\Services\AuthService;
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class AuthController extends Controller
 
     /**
  * @OA\Post(
- *     path="/api/register",
+ *     path="/api/v1.1/register",
  *     tags={"Auth"},
  *     summary="Register a new user",
  *     @OA\RequestBody(
@@ -71,7 +71,7 @@ class AuthController extends Controller
 
 /**
  * @OA\Post(
- *     path="/api/login",
+ *     path="/api/v1.1/login",
  *     tags={"Auth"},
  *     summary="Login user",
  *     @OA\RequestBody(

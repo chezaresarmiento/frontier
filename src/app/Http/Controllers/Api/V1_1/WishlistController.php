@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1_1;
 
 use App\Http\Requests\WishlistRequest;
 use App\Services\WishlistService;
@@ -16,7 +16,7 @@ class WishlistController extends Controller
 
    /**
  * @OA\Get(
- *     path="/api/wishlist",
+ *     path="/api/v1.1/wishlist",
  *     tags={"Wishlist"},
  *     summary="Retrieve the current user's wishlist",
  *     security={{"bearerAuth":{}}},
@@ -45,7 +45,7 @@ class WishlistController extends Controller
 
     /**
  * @OA\Post(
- *     path="/api/wishlist",
+ *     path="/api/v1.1/wishlist",
  *     tags={"Wishlist"},
  *     summary="Add a product to the user's wishlist",
  *     security={{"bearerAuth":{}}},
@@ -78,7 +78,7 @@ class WishlistController extends Controller
 
 /**
  * @OA\Delete(
- *     path="/api/wishlist/{product_id}",
+ *     path="/api/v1.1/wishlist/{product_id}",
  *     tags={"Wishlist"},
  *     summary="Remove a product from the user's wishlist",
  *     security={{"bearerAuth":{}}},

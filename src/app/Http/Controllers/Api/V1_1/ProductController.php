@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1_1;
 
 use App\Services\ProductService;
 use Illuminate\Http\JsonResponse;
@@ -14,7 +14,7 @@ class ProductController extends Controller
 
     /**
  * @OA\Get(
- *     path="/api/products",
+ *     path="/api/v1.1/products",
  *     tags={"Products"},
  *     summary="List all available products",
  *     security={{"bearerAuth":{}}},
@@ -41,7 +41,7 @@ class ProductController extends Controller
 
      /**
      * @OA\Post(
-     *     path="/api/products",
+     *     path="/api/v1.1/products",
      *     tags={"Products"},
      *     summary="Add a new product",
      *     security={{"bearerAuth":{}}},

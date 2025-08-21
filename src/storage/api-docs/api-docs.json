@@ -12,13 +12,13 @@
         }
     ],
     "paths": {
-        "/api/register": {
+        "/api/v1.1/register": {
             "post": {
                 "tags": [
                     "Auth"
                 ],
                 "summary": "Register a new user",
-                "operationId": "8a56853624e025573120a09a4c75d468",
+                "operationId": "d7e897a74f6a3c391ebff4f0350b0cff",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -78,13 +78,13 @@
                 }
             }
         },
-        "/api/login": {
+        "/api/v1.1/login": {
             "post": {
                 "tags": [
                     "Auth"
                 ],
                 "summary": "Login user",
-                "operationId": "a3b306d14572d1f4bd6c064b3233e7b8",
+                "operationId": "bd12653c678b9bd863e2e0ba394d595e",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -136,13 +136,13 @@
                 }
             }
         },
-        "/api/products": {
+        "/api/v1.1/products": {
             "get": {
                 "tags": [
                     "Products"
                 ],
                 "summary": "List all available products",
-                "operationId": "1bfaa78d1c2c3848ab8165c5dadcad3e",
+                "operationId": "29144f1d421858494a2984d9755b1750",
                 "responses": {
                     "200": {
                         "description": "List of products",
@@ -184,7 +184,7 @@
                     "Products"
                 ],
                 "summary": "Add a new product",
-                "operationId": "e8185e307706e2cd84bbcf5171e2f09d",
+                "operationId": "003299a82ba3dad7103620415e756ac0",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -254,13 +254,13 @@
                 ]
             }
         },
-        "/api/wishlist": {
+        "/api/v1.1/wishlist": {
             "get": {
                 "tags": [
                     "Wishlist"
                 ],
                 "summary": "Retrieve the current user's wishlist",
-                "operationId": "7de9c05c67c97110c68860d9c0b814f9",
+                "operationId": "04e720adf540f5041c7ead69d8f39a75",
                 "responses": {
                     "200": {
                         "description": "Wishlist items",
@@ -298,7 +298,7 @@
                     "Wishlist"
                 ],
                 "summary": "Add a product to the user's wishlist",
-                "operationId": "b254af311d2f414d5fb8fc20756ba6b0",
+                "operationId": "8648f8a40984c74980ca9b4088369897",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -351,13 +351,13 @@
                 ]
             }
         },
-        "/api/wishlist/{product_id}": {
+        "/api/v1.1/wishlist/{product_id}": {
             "delete": {
                 "tags": [
                     "Wishlist"
                 ],
                 "summary": "Remove a product from the user's wishlist",
-                "operationId": "f8dcd7ae2f0fe8a3329c477d2f644d11",
+                "operationId": "f4a38f2f51da1b996db4234f48ea492f",
                 "parameters": [
                     {
                         "name": "product_id",

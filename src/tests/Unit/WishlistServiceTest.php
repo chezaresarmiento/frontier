@@ -39,6 +39,17 @@ class WishlistServiceTest extends TestCase
         $this->assertInstanceOf(Wishlist::class, $wishlist);
         $this->assertEquals($user->id, $wishlist->user_id);
         $this->assertEquals($product->id, $wishlist->product_id);
+
+        // remove product from wishlist
+        $deleted = $wishlist->delete();
+
+        // Assert deleted
+        $this->assertTrue($deleted);
+        $this->assertDatabaseMissing('wishlists', [
+            'id'        => $wishlist->id,
+            'user_id'   => $user->id,
+            'product_id'=> $product->id,
+        ]);
         
     }
 

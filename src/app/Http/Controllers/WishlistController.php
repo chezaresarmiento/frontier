@@ -14,9 +14,26 @@ class WishlistController extends Controller
         private WishlistService $service
     ) {}
 
-    /**
-     * Get the authenticated user’s wishlist
-     */
+   /**
+ * @OA\Get(
+ *     path="/api/wishlist",
+ *     tags={"Wishlist"},
+ *     summary="Retrieve the current user's wishlist",
+ *     security={{"bearerAuth":{}}},
+ *     @OA\Response(
+ *         response=200,
+ *         description="Wishlist items",
+ *         @OA\JsonContent(type="array",
+ *             @OA\Items(
+ *                 @OA\Property(property="id", type="integer"),
+ *                 @OA\Property(property="user_id", type="integer"),
+ *                 @OA\Property(property="product_id", type="integer")
+ *             )
+ *         )
+ *     )
+ * )
+ */
+
     public function index(Request $request): JsonResponse
     {
         $user = $request->user();
@@ -27,8 +44,30 @@ class WishlistController extends Controller
     }
 
     /**
-     * Add a product to the wishlist
-     */
+ * @OA\Post(
+ *     path="/api/wishlist",
+ *     tags={"Wishlist"},
+ *     summary="Add a product to the user's wishlist",
+ *     security={{"bearerAuth":{}}},
+ *     @OA\RequestBody(
+ *         required=true,
+ *         @OA\JsonContent(
+ *             required={"product_id"},
+ *             @OA\Property(property="product_id", type="integer", example=1)
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=201,
+ *         description="Product added to wishlist",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="id", type="integer"),
+ *             @OA\Property(property="user_id", type="integer"),
+ *             @OA\Property(property="product_id", type="integer")
+ *         )
+ *     ),
+ *     @OA\Response(response=400, description="Product already in wishlist")
+ * )
+ */
     public function store(WishlistRequest $request): JsonResponse
     {
          $user = $request->user();   
@@ -37,9 +76,23 @@ class WishlistController extends Controller
         return response()->json($wishlist, 201);
     }
 
-    /**
-     * Remove a product from the wishlist
-     */
+/**
+ * @OA\Delete(
+ *     path="/api/wishlist/{product_id}",
+ *     tags={"Wishlist"},
+ *     summary="Remove a product from the user's wishlist",
+ *     security={{"bearerAuth":{}}},
+ *     @OA\Parameter(
+ *         name="product_id",
+ *         in="path",
+ *         required=true,
+ *         description="ID of the product to remove",
+ *         @OA\Schema(type="integer")
+ *     ),
+ *     @OA\Response(response=204, description="Product removed successfully"),
+ *     @OA\Response(response=404, description="Product not found in wishlist")
+ * )
+ */
     public function destroy(Request $request,int $productId): JsonResponse
     {
         // dd($productId);

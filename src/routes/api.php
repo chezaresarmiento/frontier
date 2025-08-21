@@ -9,16 +9,12 @@ use App\Http\Controllers\Api\V1_1\WishlistController;
 
 Route::get('/ping', fn() => ['pong' => true]);
 
-
-
-
-
     Route::prefix('v1.1')->group(function () {
 
         Route::post('register', [AuthController::class, 'register']);
         Route::post('login', [AuthController::class, 'login']);
 
-        Route::middleware('auth.token')->group(function () {
+        Route::middleware('token.auth')->group(function () {
             Route::post('logout', [AuthController::class, 'logout']);
             Route::get('wishlist', [WishlistController::class, 'index']);
             Route::post('wishlist', [WishlistController::class, 'store']);

@@ -4,17 +4,17 @@ namespace App\Services;
 
 use App\Models\User;
 use App\Models\UserToken;
-use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AuthService
 {
     public function register(string $name, string $email, string $password): User
     {
         return User::create([
-            'name' => $name,
-            'email' => $email,
+            'name'     => $name,
+            'email'    => $email,
             'password' => bcrypt($password),
         ]);
     }
@@ -28,9 +28,9 @@ class AuthService
         }
 
         return UserToken::create([
-            'user_id'   => $user->id,
-            'token'     => hash('sha256', Str::random(60)),
-            'expires_at'=> Carbon::now()->addHours(2),
+            'user_id'    => $user->id,
+            'token'      => hash('sha256', Str::random(60)),
+            'expires_at' => Carbon::now()->addHours(2),
         ]);
     }
 

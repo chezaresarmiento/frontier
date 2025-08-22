@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Api\V1_1;
 use App\Http\Requests\WishlistRequest;
 use App\Services\WishlistService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class WishlistController extends Controller
 {
     public function __construct(
         private WishlistService $service
-    ) {}
+    ) {
+    }
 
-   /**
+    /**
  * @OA\Get(
  *     path="/api/v1.1/wishlist",
  *     tags={"Wishlist"},
@@ -70,34 +70,34 @@ class WishlistController extends Controller
  */
     public function store(WishlistRequest $request): JsonResponse
     {
-         $user = $request->user();   
+        $user     = $request->user();
         $wishlist = $this->service->addProduct($user->id, $request->product_id);
 
         return response()->json($wishlist, 201);
     }
 
-/**
- * @OA\Delete(
- *     path="/api/v1.1/wishlist/{product_id}",
- *     tags={"Wishlist"},
- *     summary="Remove a product from the user's wishlist",
- *     security={{"bearerAuth":{}}},
- *     @OA\Parameter(
- *         name="product_id",
- *         in="path",
- *         required=true,
- *         description="ID of the product to remove",
- *         @OA\Schema(type="integer")
- *     ),
- *     @OA\Response(response=204, description="Product removed successfully"),
- *     @OA\Response(response=404, description="Product not found in wishlist")
- * )
- */
-    public function destroy(Request $request,int $productId): JsonResponse
+    /**
+     * @OA\Delete(
+     *     path="/api/v1.1/wishlist/{product_id}",
+     *     tags={"Wishlist"},
+     *     summary="Remove a product from the user's wishlist",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="product_id",
+     *         in="path",
+     *         required=true,
+     *         description="ID of the product to remove",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(response=204, description="Product removed successfully"),
+     *     @OA\Response(response=404, description="Product not found in wishlist")
+     * )
+     */
+    public function destroy(Request $request, int $productId): JsonResponse
     {
         // dd($productId);
-        $user = $request->user();   
-        $response=$this->service->removeProduct($user->id, $productId);
+        $user     = $request->user();
+        $response = $this->service->removeProduct($user->id, $productId);
 
         if (!$response) {
             return response()->json(['error' => 'Product not found in wishlist'], 404);

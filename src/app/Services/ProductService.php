@@ -2,15 +2,16 @@
 
 namespace App\Services;
 
+use App\Models\Product;
 use App\Repositories\ProductRepository;
 use Illuminate\Support\Collection;
-use App\Models\Product;
 
 class ProductService
 {
     public function __construct(
         private ProductRepository $repository
-    ) {}
+    ) {
+    }
 
     public function getAll(): Collection
     {
@@ -26,5 +27,5 @@ class ProductService
         ]);
     }
 
-    
+
 }

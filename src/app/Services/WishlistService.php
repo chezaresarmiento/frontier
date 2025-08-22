@@ -2,18 +2,20 @@
 
 namespace App\Services;
 
-use App\Repositories\WishlistRepository;
 use App\Models\Wishlist;
+use App\Repositories\WishlistRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 class WishlistService
 {
-    public function __construct(private WishlistRepository $repository) {}
+    public function __construct(private WishlistRepository $repository)
+    {
+    }
 
     public function addProduct(int $userId, int $productId): Wishlist|string
     {
         if ($this->repository->exists($userId, $productId)) {
-            throw new \Exception("Product already in wishlist");
+            throw new \Exception('Product already in wishlist');
         }
 
         return $this->repository->add($userId, $productId);

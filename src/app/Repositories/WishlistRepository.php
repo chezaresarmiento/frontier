@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Models\Wishlist;
@@ -9,7 +10,7 @@ class WishlistRepository
     public function add(int $userId, int $productId): Wishlist
     {
         $response = Wishlist::create([
-            'user_id' => $userId,
+            'user_id'    => $userId,
             'product_id' => $productId,
         ]);
 

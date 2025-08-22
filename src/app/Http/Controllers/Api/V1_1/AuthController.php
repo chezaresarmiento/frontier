@@ -15,13 +15,14 @@
 namespace App\Http\Controllers\Api\V1_1;
 
 use App\Services\AuthService;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    
-    public function __construct(private AuthService $authService) {}
+    public function __construct(private AuthService $authService)
+    {
+    }
 
 
     /**
@@ -69,30 +70,30 @@ class AuthController extends Controller
     }
 
 
-/**
- * @OA\Post(
- *     path="/api/v1.1/login",
- *     tags={"Auth"},
- *     summary="Login user",
- *     @OA\RequestBody(
- *         required=true,
- *         @OA\JsonContent(
- *             required={"email","password"},
- *             @OA\Property(property="email", type="string", format="email"),
- *             @OA\Property(property="password", type="string", format="string", example="secret123")
- *         )
- *     ),
- *     @OA\Response(
- *         response=200,
- *         description="Successful login",
- *         @OA\JsonContent(
- *             @OA\Property(property="token", type="string"),
- *             @OA\Property(property="expires_at", type="string", format="date-time")
- *         )
- *     ),
- *     @OA\Response(response=401, description="Invalid credentials")
- * )
- */
+    /**
+     * @OA\Post(
+     *     path="/api/v1.1/login",
+     *     tags={"Auth"},
+     *     summary="Login user",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"email","password"},
+     *             @OA\Property(property="email", type="string", format="email"),
+     *             @OA\Property(property="password", type="string", format="string", example="secret123")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful login",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="token", type="string"),
+     *             @OA\Property(property="expires_at", type="string", format="date-time")
+     *         )
+     *     ),
+     *     @OA\Response(response=401, description="Invalid credentials")
+     * )
+     */
     public function login(Request $request): JsonResponse
     {
         $request->validate([

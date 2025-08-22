@@ -6,9 +6,9 @@ use Illuminate\Console\GeneratorCommand;
 
 class MakeServiceCommand extends GeneratorCommand
 {
-    protected $signature = 'make:service {name}';
+    protected $signature   = 'make:service {name}';
     protected $description = 'Create a new service class';
-    protected $type = 'Service';
+    protected $type        = 'Service';
 
     protected function getStub()
     {

@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 
 class TokenAuth
 {
-    public function __construct(private AuthService $authService) {}
+    public function __construct(private AuthService $authService)
+    {
+    }
 
     public function handle(Request $request, Closure $next)
     {

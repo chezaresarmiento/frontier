@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * App\Models\UserToken
+ * App\Models\UserToken.
  *
- * @property int $id
- * @property int $user_id
- * @property string $token
+ * @property int                        $id
+ * @property int                        $user_id
+ * @property string                     $token
  * @property \Illuminate\Support\Carbon $expires_at
  *
  * @property-read User $user

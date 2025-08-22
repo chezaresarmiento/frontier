@@ -59,3 +59,5 @@ clover.xml
 *.tgz
 *.bak   
 *.lock
+
+.php-cs-fixer.cache

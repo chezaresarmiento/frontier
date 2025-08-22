@@ -2,22 +2,21 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use App\Models\User;
 use App\Models\Product;
+use App\Models\User;
 use App\Models\UserToken;
-use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
+use Tests\TestCase;
 
 class WishlistTest extends TestCase
 {
-
     private function actingWithToken(User $user)
     {
         $token = UserToken::create([
-            'user_id'   => $user->id,
-            'token'     => hash('sha256', Str::random(60)),
-            'expires_at'=> Carbon::now()->addHour(),
+            'user_id'    => $user->id,
+            'token'      => hash('sha256', Str::random(60)),
+            'expires_at' => Carbon::now()->addHour(),
         ]);
 
         return ['Authorization' => 'Bearer ' . $token->token];
@@ -26,7 +25,7 @@ class WishlistTest extends TestCase
     public function test_add_and_delete_wishlist_item()
     {
         // Arrange
-        $user = User::factory()->create();
+        $user    = User::factory()->create();
         $product = Product::factory()->create();
 
         $headers = $this->actingWithToken($user);

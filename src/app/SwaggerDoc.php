@@ -1,4 +1,5 @@
 <?php
+
 namespace App;
 
 /**
@@ -11,7 +12,7 @@ namespace App;
  *     url="http://localhost:9000",
  *     description="Local development server"
  * )
- * 
+ *
  * @OA\SecurityScheme(
  *     securityScheme="bearerAuth",
  *     type="http",

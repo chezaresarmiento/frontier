@@ -10,7 +10,7 @@
 .env.*
 **/.env
 !.env.example
-**/migrations
+
 
 # Composer & PHP tools
 composer.lock

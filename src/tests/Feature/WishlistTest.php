@@ -6,13 +6,11 @@ use Tests\TestCase;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\UserToken;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 
 class WishlistTest extends TestCase
 {
-    use RefreshDatabase; // ensures clean DB for each test
 
     private function actingWithToken(User $user)
     {

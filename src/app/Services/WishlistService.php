@@ -19,7 +19,8 @@ class WishlistService
         return $this->repository->add($userId, $productId);
     }
 
-    public function getUserWishlist(int $userId): Collection
+    /** @return Collection<int, Wishlist> */
+    public function getUserWishlist(int $userId): \Illuminate\Database\Eloquent\Collection
     {
         return $this->repository->getByUser($userId);
     }

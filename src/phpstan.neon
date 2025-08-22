@@ -1,0 +1,22 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor/pestphp/pest/extension.neon
+
+parameters:
+    paths:
+        - app
+        - routes
+        - tests
+
+    level: 5
+
+    bootstrapFiles:
+        - vendor/autoload.php
+
+    universalObjectCratesClasses:
+        - Illuminate\Database\Eloquent\Model
+
+    ignoreErrors:
+        - '#Undefined variable: \$this#'
+        - '#Call to an undefined method PHPUnit\\Framework\\TestCase::withHeaders#'
+        - '#Call to an undefined method PHPUnit\\Framework\\TestCase::getJson#'

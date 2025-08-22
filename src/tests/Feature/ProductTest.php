@@ -1,13 +1,14 @@
 <?php
+namespace Tests\Feature;
 
 use App\Models\User;
 use App\Models\Product;
 use App\Models\UserToken;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
-uses(RefreshDatabase::class);
+
+
 
 it('can fetch products with a valid token', function () {
     $user = User::factory()->create();

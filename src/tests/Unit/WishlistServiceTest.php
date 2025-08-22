@@ -26,10 +26,16 @@ class WishlistServiceTest extends TestCase
 
     public function test_add_product_when_not_in_wishlist()
     {
-        // Arrange
+        // properties added to fix PHPStan error
+        
+        /** @var \App\Models\Product $product */ 
         $product = Product::factory()->create();
+
+ 
+        /** @var \App\Models\User $user */
         $user = User::factory()->create();
 
+        /** @var \App\Models\Wishlist $wishlist */
         $wishlist = Wishlist::create([
             'user_id' => $user->id,
             'product_id' => $product->id,

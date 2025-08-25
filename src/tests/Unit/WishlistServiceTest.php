@@ -65,8 +65,8 @@ class WishlistServiceTest extends TestCase
         $this->repository->method('exists')->willReturn(true);
 
         // Assert
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Product already in wishlist');
+        $this->expectException(\App\Exceptions\DuplicateWishlistItemException::class);
+
 
         // Act
         $this->service->addProduct(1, 10);

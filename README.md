@@ -68,7 +68,7 @@ docker compose exec php composer install
 docker compose exec php php artisan migrate --seed
 
 # Open Swagger
-http://localhost:9000/api/documentation#/
+http://localhost:9000/api/documentation#/ (please test the endpoints here)
 
 # Try the endpoints provided
 Register a user
@@ -86,7 +86,7 @@ Copy the token provided and paste it into Authorize button located uper right
     
 -   Redis: `localhost:6379` (Not using but demonstrate the tool)
     
--   Swagger UI: `http://localhost:9000/docs` (please test the endpoints here)
+-   Swagger UI: `http://localhost:9000/docs` 
 -   After registering a user, login and get the token
 -   use it in Authorize section to test the rest of endpoints
     

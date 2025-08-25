@@ -15,7 +15,7 @@ class WishlistService
     public function addProduct(int $userId, int $productId): Wishlist|string
     {
         if ($this->repository->exists($userId, $productId)) {
-            throw new \Exception('Product already in wishlist');
+            throw new \App\Exceptions\DuplicateWishlistItemException('Product already in wishlist');
         }
 
         return $this->repository->add($userId, $productId);

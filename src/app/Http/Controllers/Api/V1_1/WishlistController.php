@@ -71,9 +71,16 @@ class WishlistController extends Controller
     public function store(WishlistRequest $request): JsonResponse
     {
         $user     = $request->user();
-        $wishlist = $this->service->addProduct($user->id, $request->product_id);
+        try{
+            $wishlist = $this->service->addProduct($user->id, $request->product_id);
+            return response()->json($wishlist, 201);
+        }catch (\Exception $e){
+            return response()->json(['error' => 'Product already in wishlist'], 402);
+        }
+    
+        
 
-        return response()->json($wishlist, 201);
+        
     }
 
     /**
